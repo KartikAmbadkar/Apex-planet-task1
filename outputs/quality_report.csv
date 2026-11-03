@@ -1,0 +1,6 @@
+metric,before,after
+rows,1000,1000
+columns,12,27
+missing cells,33,20
+duplicate Order_IDs,8,0
+fully duplicated rows,0,0

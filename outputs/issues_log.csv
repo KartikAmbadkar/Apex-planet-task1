@@ -1,0 +1,10 @@
+issue,column,rows_affected,action_taken
+"Order_ID collisions (same ID, different orders)",Order_ID,8,Restored sequential ID from row sequence; flagged in Order_ID_Corrected
+Missing values,Age,20,"Left null (not imputed, avoids inventing data); flagged Age_Missing; Age_Group='Unknown'"
+Missing values,City,13,Filled with 'Unknown'
+Total_Sales != Quantity x Unit_Price,Total_Sales,0,Checked: no mismatches
+Customer_ID maps to multiple names,Customer_ID,52,Not changed - no reliable master record; documented as limitation (analyse by Customer_ID)
+Customer_ID maps to multiple ages,Age,50,Not changed - documented as limitation
+"High-value orders (IQR rule, > Q3+1.5*IQR = 438707)",Total_Sales,19,Kept (valid bulk orders: high price x high quantity); flagged Sales_Outlier
+"Very low unit prices (< 1,000 for Laptop/Mobile/Chair etc.)",Unit_Price,16,Kept; prices are spread evenly across products so no reliable per-product price to compare to - flagged for review
+Derived features,-,1000,"Added date parts, Age_Group, State, Region, Order_Size, Price_Band"

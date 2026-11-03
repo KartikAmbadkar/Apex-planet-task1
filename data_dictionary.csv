@@ -1,0 +1,28 @@
+column,type,source,description,business_relevance
+Order_ID,string,original,Unique order identifier (ORD + 6 digits),Primary key; joins orders to fulfilment/returns
+Order_Date,date,original,Date order was placed (YYYY-MM-DD; 2025-01-01 to 2026-01-01),Enables trend and seasonality analysis
+Customer_ID,string,original,Customer identifier (CUST + 4 digits),Repeat-purchase and retention analysis
+Customer_Name,string,original,Customer label (Customer_N),Display only; not reliable as a key
+Age,float,original,Customer age in years (18-65); 20 missing,Demographic segmentation
+Gender,string,original,Male / Female,Demographic segmentation
+City,string,original,City of purchase (8 cities); 13 missing -> Unknown,Regional performance
+Product,string,original,One of 6 products (Mobile Laptop Book Chair Shoes Rice),Product-level sales
+Category,string,original,Product category (Electronics Education Furniture Fashion Grocery),Category mix and margins
+Quantity,int,original,Units per order (1-10),Basket size / demand volume
+Unit_Price,float,original,Price per unit in currency units,Pricing analysis
+Total_Sales,float,original,Quantity x Unit_Price (verified),Revenue - core KPI
+Order_ID_Corrected,bool,derived,True if a duplicate Order_ID was restored from sequence,Audit trail for the ID fix
+Age_Missing,bool,derived,True if original Age was blank,Lets analysts exclude/handle missing ages
+Sales_Outlier,bool,derived,True if Total_Sales > Q3+1.5*IQR (~438.7k),Isolate bulk/high-value orders
+Low_Price_Flag,bool,derived,True if Unit_Price < 1000,Flags prices to verify with business owner
+Order_Year,int,derived,Year of order,Time grouping
+Order_Month,int,derived,Month number 1-12,Time grouping / sorting
+Order_Month_Name,string,derived,Month name,Readable charts
+Order_Quarter,string,derived,Q1-Q4,Quarterly reporting
+Order_Weekday,string,derived,Day of week,Weekday vs weekend demand
+Is_Weekend,bool,derived,Saturday/Sunday flag,Demand timing
+Age_Group,string,derived,18-24 25-34 35-44 45-54 55-65 Unknown,Segment-level analysis (stand-in for DOB-based age)
+State,string,derived,State mapped from City,Geographic rollup
+Region,string,derived,North/South/East/West mapped from City,Regional rollup
+Order_Size,string,derived,Small (1-3) / Medium (4-7) / Large (8-10) by Quantity,Basket-size segmentation
+Price_Band,string,derived,Budget <10k / Mid 10-25k / Premium 25-40k / Luxury 40k+,Price-tier analysis

@@ -33,5 +33,4 @@ Date parts (year, month, quarter, weekday, weekend), `Age_Group`, `State` and `R
 
 ## Assumptions and limitations
 - The ID fix assumes IDs were meant to be sequential.
-- Customer_ID/Name/Age are not consistent across orders, so customer-level analysis should use Customer_ID with caution.
-- Prices look uniformly random across products (e.g. rice at 49k), which suggests synthetic data.
+- Prices look uniformly random across products (e.g. rice at 49k), which suggests data is synthetic.

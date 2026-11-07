@@ -3,7 +3,7 @@ Data cleaning & transformation of the ApexPlanet Sales dataset.
 
 Usage: python clean_data.py [input.xlsx] [output.csv]
 
-Produces: cleaned CSV, a before/after quality report (outputs/quality_report.csv) and an issues log (outputs/issues_log.csv).
+Output: cleaned CSV, a before/after quality report (outputs/quality_report.csv) and an issues log (outputs/issues_log.csv).
 """
 import sys
 from pathlib import Path
@@ -29,7 +29,6 @@ def log(issue, col, n, action):
     issues.append({"issue": issue, "column": col, "rows_affected": int(n), "action_taken": action})
 
 
-# load
 raw = pd.read_excel(IN_PATH)
 df = raw.copy()
 n_raw = len(df)

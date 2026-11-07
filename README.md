@@ -32,6 +32,6 @@ Before / after: missing cells 33 -> 20 (remaining are intentional Age nulls), du
 Date parts (year, month, quarter, weekday, weekend), `Age_Group`, `State` and `Region` (from City), `Order_Size` (from Quantity), `Price_Band` (from Unit_Price), plus audit flags. The dataset has no date of birth, so Age_Group replaces a DOB-derived age.
 
 ## Assumptions and limitations
-- The ID fix assumes IDs were meant to be sequential (ORD100002 onward); confirm with the data owner.
+- The ID fix assumes IDs were meant to be sequential.
 - Customer_ID/Name/Age are not consistent across orders, so customer-level analysis should use Customer_ID with caution.
 - Prices look uniformly random across products (e.g. rice at 49k), which suggests synthetic data.
